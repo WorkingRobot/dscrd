@@ -1,0 +1,98 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "clang-cl",
+            "displayName": "Clang-cl",
+            "binaryDir": "${sourceDir}/builds/${presetName}",
+            "generator": "Ninja Multi-Config",
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang-cl",
+                "CMAKE_CXX_COMPILER": "clang-cl",
+                "CMAKE_LINKER": "lld-link"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOS": "Windows",
+                    "intelliSenseMode": "windows-clang-x64"
+                }
+            }
+        },
+        {
+            "name": "msvc",
+            "displayName": "MSVC",
+            "inherits": "clang-cl",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl",
+                "CMAKE_CXX_COMPILER": "cl",
+                "CMAKE_LINKER": "link"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOS": "Windows",
+                    "intelliSenseMode": "windows-msvc-x64"
+                }
+            }
+        },
+        {
+            "name": "clang",
+            "displayName": "Clang",
+            "inherits": "clang-cl",
+            "toolchainFile": "clang-lnx.cmake",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_LINKER": "ld.lld"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOS": "Linux"
+                }
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "clang-cl-debug",
+            "configurePreset": "clang-cl",
+            "displayName": "Debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "clang-cl-release",
+            "configurePreset": "clang-cl",
+            "displayName": "Release",
+            "configuration": "Release"
+        },
+        {
+            "name": "msvc-debug",
+            "configurePreset": "msvc",
+            "displayName": "Debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "msvc-release",
+            "configurePreset": "msvc",
+            "displayName": "Release",
+            "configuration": "Release"
+        },
+        {
+            "name": "clang-debug",
+            "configurePreset": "clang",
+            "displayName": "Debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "clang-release",
+            "configurePreset": "clang",
+            "displayName": "Release",
+            "configuration": "Release"
+        }
+    ]
+}

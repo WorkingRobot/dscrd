@@ -1,0 +1,1 @@
+create_project(rapidetf STATIC_LIB IS_SIMPLE)

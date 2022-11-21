@@ -1,0 +1,6 @@
+{
+    "name": "dscrd",
+    "version-string": "0.1.0",
+    "description": "A C++23 Discord bot library built off of coroutines",
+    "dependencies": []
+}

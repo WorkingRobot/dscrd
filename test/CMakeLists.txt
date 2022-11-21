@@ -1,0 +1,1 @@
+create_project(dscrd::test EXEC_NOGUI IS_SIMPLE)
